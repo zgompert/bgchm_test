@@ -13,7 +13,6 @@ Simulate data with dfuse.
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-user=zach.gompert@usu.edu
 
-
 cd /uufs/chpc.utah.edu/common/home/gompert-group4/projects/bgchhm_methods/hq_test
 
 ## for illustration of results
@@ -55,3 +54,4 @@ done
 
 wait
 ```
+This script runs [command_one.R](commands_one.R), which fits the model for each data set. The rdat files from each fit model (simulated data set) are then combined and summarized with [summarizeTest.R](summarizeTest.R).
