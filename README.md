@@ -236,3 +236,4 @@ wait
 This runs the main script, [commands_geo.R](commands_geo.R), with results then summarized with [summarizeGeo.R](summarizeGeo.R).
 
 # Analysis of the *Lycaeides* hybrid zone
+We applied the genomic clines analysis to an empirical butterfly data set. The data come from [Chaturvedi et al. 2020](https://www.nature.com/articles/s41467-020-15641-x). The specific input files will be available from Dryad, but are on [Google drive]() for now. The core analyses are described in [FitClineModel_Lycaeides.R](FitClineModel_Lycaeides.R).
