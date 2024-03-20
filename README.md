@@ -58,6 +58,7 @@ This script runs [command_one.R](commands_one.R), which fits the model for each 
 
 
 # Simulations and analyses for genomic clines
+
 Simulations with the genomic clines model as the generative model and a focus on cline variablity are in [simClines1.R](simClines1.R). Cline fitting is organized with the following wrapper script:
 
 ```bash
@@ -191,4 +192,47 @@ done
 
 wait
 ```
-This calls four R scripts (one per genetic architecture): [commands_neu.R](commands_neu.R), [commands_oligo.R](commands_oligo.R), [commands_poly.R](commands_poly.R), and [commands_spoly.R](commands_spoly.R).
+This calls four R scripts (one per genetic architecture): [commands_neu.R](commands_neu.R), [commands_oligo.R](commands_oligo.R), [commands_poly.R](commands_poly.R), and [commands_spoly.R](commands_spoly.R). The results were summarized with [summarizeDf.R](summarizeDf.R).
+
+
+
+# Simulations and analyses for geographic clines
+
+A single set of simulations was used to evaluate the geographic clines model. These simulations used the hierarchical geographic clines model as the generative model, see [simGeoGlines.R](simGeoGlines.R).
+
+Model fitting was organized with:
+
+```bash
+#!/bin/sh 
+#SBATCH --time=120:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=12
+#SBATCH --account=gompert-np
+#SBATCH --partition=gompert-np
+#SBATCH --job-name=bgchm
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-user=zach.gompert@usu.edu
+
+max=15
+## total = total number of jobs
+total=100
+count=0
+
+cd /uufs/chpc.utah.edu/common/home/gompert-group4/projects/bgchhm_methods/geocl_test
+
+for ((j=1; j<=100; j++))
+do
+    Rscript --vanilla commands_geo.R "$j" &
+    ((count++))
+
+    if ((count >= max)); then
+        wait -n
+        ((count--))
+    fi
+done
+
+wait
+```
+This runs the main script, [commands_geo.R](commands_geo.R), with results then summarized with [summarizeGeo.R](summarizeGeo.R).
+
+# Analysis of the *Lycaeides* hybrid zone
