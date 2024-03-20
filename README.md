@@ -1,5 +1,7 @@
 # bgchm_test
 
+This repository contains scripts used in an evaluation of bgchm for a methods paper,Bayesian analyses of hybrid zones in R with Hamiltonian Monte Carlo (soon to be submitted). The actual software is in a different repository, [bgchm](https://github.com/zgompert/bgc-hm).  
+
 # Simulations and analyses for hybrid index and ancestry class proportions
 Simulate data with dfuse.
 ```bash
@@ -236,4 +238,4 @@ wait
 This runs the main script, [commands_geo.R](commands_geo.R), with results then summarized with [summarizeGeo.R](summarizeGeo.R).
 
 # Analysis of the *Lycaeides* hybrid zone
-We applied the genomic clines analysis to an empirical butterfly data set. The data come from [Chaturvedi et al. 2020](https://www.nature.com/articles/s41467-020-15641-x). The specific input files will be available from Dryad, but are on [Google drive]() for now. The core analyses are described in [FitClineModel_Lycaeides.R](FitClineModel_Lycaeides.R).
+We applied the genomic clines analysis to an empirical butterfly data set. The data come from [Chaturvedi et al. 2020](https://www.nature.com/articles/s41467-020-15641-x). The specific input files will be available from Dryad, but are on [Google drive](https://drive.google.com/drive/folders/1ulnu5os-JFcvQexiU2xYB4YZ09K4l-M-?usp=sharing) for now. The core analyses are described in [FitClineModel_Lycaeides.R](FitClineModel_Lycaeides.R).
